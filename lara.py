@@ -17,7 +17,7 @@ def print_banner():
     print("   |        _ \    |   |    _ \ ")
     print("   |       ___ \   __ <    ___ \ ")
     print("  _____| _/    _\ _| \_\ _/    _\ ")
-    print("      c r y p t   b r e a k e r")
+    print("     c r y p t    b r e a k e r")
     print(Fore.RESET)
 
 # SETUP OPTIONS:
