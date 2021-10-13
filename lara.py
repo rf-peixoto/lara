@@ -52,3 +52,4 @@ for word in words:
         sys.exit()
     else:
         print(Fore.RED + "[-]" + Fore.RESET + " {0}".format(word))
+print("\n" + Fore.RED + "No password was found." + Fore.RESET)
