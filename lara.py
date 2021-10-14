@@ -39,7 +39,8 @@ else:
 
 # OPEN WORDLIST
 try:
-    with open(wordlist, "r") as fl:
+    # Always check the best encoding for your wordlist!
+    with open(wordlist, "r", encoding="iso8859_15") as fl:
         words = fl.read().split("\n")
     print(Fore.RED + "Wordlist Size: " + Fore.RESET + str(len(words)))
 except Exception as error:
