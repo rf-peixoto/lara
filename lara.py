@@ -45,6 +45,7 @@ try:
 except Exception as error:
     print("")
     print(Fore.WHITE + Back.RED)
+    print("Failed to load wordlist.")
     print(error)
     print(Fore.RESET + Back.RESET)
     sys.exit()
