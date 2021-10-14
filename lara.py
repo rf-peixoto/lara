@@ -30,26 +30,33 @@ tmp = full_hash.split("$")
 salt = "$" + tmp[1] + "$" + tmp[2] + "$"
 print(Fore.RED + "Hash Salt: " + Fore.RESET + salt)
 # Get Wordlist:
-print(Fore.RED + "Wordlist: " + Fore.RESET, end="")
-wordlist = input()
+if len(sys.argv) == 2:
+    wordlist = sys.argv[1]
+    print(Fore.RED + "Wordlist: " + Fore.RESET + wordlist)
+else:
+    print(Fore.RED + "Wordlist: " + Fore.RESET, end="")
+    wordlist = input()
 
 # OPEN WORDLIST
-print("")
 try:
     with open(wordlist, "r") as fl:
         words = fl.read().split("\n")
+    print(Fore.RED + "Wordlist Size: " + Fore.RESET + str(len(words)))
 except Exception as error:
+    print("")
     print(Fore.WHITE + Back.RED)
     print(error)
     print(Fore.RESET + Back.RESET)
     sys.exit()
 
 # CRACKING LOOP:
+input(Fore.RED + "Ready. Press ENTER to go." + Fore.RESET)
 print("")
 for word in words:
-    if crypt.crypt(word, salt) == full_hash:
-        print(Fore.GREEN + "[+]" + Fore.RESET + " {0}".format(word))
+    tmp = crypt.crypt(word, salt)
+    if tmp == full_hash:
+        print(Fore.GREEN + "[+] {0} - {1}".format(word, tmp) + Fore.RESET)
         sys.exit()
     else:
-        print(Fore.RED + "[-]" + Fore.RESET + " {0}".format(word))
+        print(Fore.RED + "[-]" + Fore.RESET + " {0}".format(word) + Fore.RED + " - " + Fore.RESET + "{0}".format(tmp))
 print("\n" + Fore.RED + "No password was found." + Fore.RESET)
