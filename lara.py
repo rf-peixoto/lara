@@ -39,8 +39,7 @@ else:
 
 # OPEN WORDLIST
 try:
-    # Always check the best encoding for your wordlist!
-    with open(wordlist, "r", encoding="iso8859_15") as fl:
+    with open(wordlist, "r", encoding='iso8859_15') as fl:
         words = fl.read().split("\n")
     print(Fore.RED + "Wordlist Size: " + Fore.RESET + str(len(words)))
 except Exception as error:
@@ -58,8 +57,8 @@ for word in words:
     tmp = crypt.crypt(word, salt)
     if tmp == full_hash:
         print(Fore.GREEN + "[+] {0} - {1}".format(word, tmp))
-        print("[OK] " + Fore.RESET + "Your key was found.")
+        print("[OK] Your key was found." + Fore.RESET)
         sys.exit()
     else:
         print(Fore.RED + "[-]" + Fore.RESET + " {0}".format(word) + Fore.RED + " - " + Fore.RESET + "{0}".format(tmp))
-print("\n" + Fore.RED + "No password was found." + Fore.RESET)
+print("\n" + Fore.RED + "[FAIL] No password was found." + Fore.RESET)
