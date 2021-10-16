@@ -58,7 +58,7 @@ for word in words:
     tmp = crypt.crypt(word, salt)
     if tmp == full_hash:
         print(Fore.GREEN + "[+] {0} - {1}".format(word, tmp))
-        print(" * Your key was found." + Fore.RESET)
+        print("[OK] " + Fore.RESET + "Your key was found.")
         sys.exit()
     else:
         print(Fore.RED + "[-]" + Fore.RESET + " {0}".format(word) + Fore.RED + " - " + Fore.RESET + "{0}".format(tmp))
