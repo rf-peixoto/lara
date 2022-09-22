@@ -1,6 +1,4 @@
 #!/usr/bin/python
-print("Loading LARA...")
-
 import os
 import sys
 import crypt
